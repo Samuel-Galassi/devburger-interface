@@ -1,85 +1,66 @@
-# 🍔 DevBurger — Front-end
+# 🍔 DevBurger — Front-end Interface
 
-Interface web do **DevBurger**, um projeto desenvolvido como parte do meu processo de formação no **DevClub**, com foco em **boas práticas de front-end**, organização de código, componentização e integração com API.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Responsivo](https://img.shields.io/badge/Responsivo-não-red?style=for-the-badge)
 
-Este projeto simula uma aplicação real de delivery, contemplando **experiência do usuário**, **layout profissional** e **fluxo de navegação bem definido**, seguindo padrões utilizados no mercado.
+Este repositório contém o **front-end do sistema DevBurger**, uma aplicação web desenvolvida em **React**, com foco em **componentização, organização de código e experiência do usuário**.
 
----
-
-## 👨‍💻 Sobre mim
-
-Sou **Samuel Galassi**, Desenvolvedor Web em formação, com foco em **Front-end** e evolução constante para **Full Stack**.  
-Tenho como objetivo atuar profissionalmente no mercado de tecnologia, participando de projetos reais, bem estruturados e escaláveis.
-
-📍 **São Paulo, Brasil**  
-🎓 **Aluno DevClub**  
-🎯 Foco: **Front-end com React**  
-🚀 Objetivo: Atuar profissionalmente na área e evoluir para projetos internacionais
+O projeto faz parte da minha formação como **Desenvolvedor Web Full Stack** no **DevClub**, sendo utilizado para consolidar conhecimentos reais do mercado, integração com API e boas práticas de front-end.
 
 ---
 
-## 📌 Sobre o projeto
+## 📸 Demonstração
 
-O **DevBurger Front-end** foi desenvolvido para:
-
-- Simular uma aplicação real de pedidos online  
-- Consumir dados de uma API REST  
-- Trabalhar conceitos modernos de front-end  
-- Aplicar organização de componentes e estados  
-- Criar uma interface limpa, funcional e intuitiva  
-
-O projeto possui separação clara entre **interface**, **lógica**, **estados globais** e **estilização**, seguindo padrões profissionais.
+🔗 Interface integrada à API DevBurger  
+*(Projeto conectado a um back-end próprio com autenticação, produtos e pedidos)*
 
 ---
 
-## 🖥️ Funcionalidades da interface
+## 🛠️ Tecnologias utilizadas
 
-- Navegação entre páginas
-- Exibição dinâmica de produtos
-- Carrinho de compras
-- Área administrativa (integração com permissões)
-- Interface responsiva
-- Componentização reutilizável
-- Integração com back-end
-
----
-
-## 🛠️ Tecnologias utilizadas (Front-end)
-
-- <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
-- <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
-- <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-- <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-- <img src="https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white" alt="Styled Components" />
-- <img src="https://img.shields.io/badge/Context%20API-000000?style=for-the-badge&logo=react" alt="Context API" />
+- React.js  
+- JavaScript (ES6+)  
+- Styled-components  
+- React Router DOM  
+- Context API  
+- Axios  
+- Design responsivo  
 
 ---
 
-## 🎓 Contexto educacional
+## 🎯 Objetivos do projeto
 
-Este projeto foi desenvolvido durante minha formação no **DevClub**, onde aplico na prática:
-
-- Conceitos modernos de desenvolvimento front-end
-- Organização de projetos profissionais
-- Integração com APIs reais
-- Boas práticas de código e arquitetura
-- Mentalidade voltada ao mercado de trabalho
+- Desenvolver uma **interface moderna e escalável**
+- Trabalhar **consumo de API REST**
+- Implementar **autenticação e controle de acesso**
+- Criar uma **experiência de usuário fluida**
+- Aplicar **boas práticas de organização e componentização em React**
 
 ---
 
-## 📊 GitHub Stats
+## 🧠 Diferenciais
 
-[![Samuel Stats](https://github-readme-stats.vercel.app/api?username=Samuel-Galassi&show_icons=true&theme=tokyonight)](https://github.com/Samuel-Galassi)
-
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Samuel-Galassi&layout=compact&theme=tokyonight)](https://github.com/Samuel-Galassi)
+- Separação clara de responsabilidades  
+- Componentes reutilizáveis  
+- Layout responsivo  
+- Integração completa com back-end próprio  
+- Projeto com padrão profissional, próximo ao ambiente real de trabalho  
 
 ---
 
-## 📬 Contato
+## 📂 Estrutura do projeto
 
-- GitHub: [github.com/Samuel-Galassi](https://github.com/Samuel-Galassi)
-
-📌 *Projeto desenvolvido para fins educacionais e evolução profissional.*
----
-
-⭐ Projeto desenvolvido com foco em aprendizado prático, organização de código e preparação para o mercado profissional.
+```bash
+📦 devburger-interface
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┣ 📂 hooks
+ ┃ ┣ 📂 pages
+ ┃ ┣ 📂 services
+ ┃ ┣ 📂 styles
+ ┃ ┗ 📜 main.jsx
+ ┣ 📜 package.json
+ ┣ 📜 README.md
