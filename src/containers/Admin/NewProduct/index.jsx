@@ -1,6 +1,6 @@
 import { Controller, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup'
+import * as yup from 'yup';
 import { Image } from '@phosphor-icons/react';
 import {
     Container,
@@ -12,47 +12,55 @@ import {
     Select,
     SubmitButton,
     ErrorMessage,
-    ContainerCheckbox
+    ContainerCheckbox,
 } from './styles';
 import { useEffect, useState } from 'react';
 import { api } from '../../../services/api';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-
-const schema = yup
-    .object({
-        name: yup.string().required('Digite o nome do produto'),
-        price: yup.number().positive().required('Digite o preço do produto').typeError('Digite o preço do produto'),
-        category: yup.object().required('Escolha uma categoria'),
-        offer: yup.bool(),
-        file: yup.mixed().test('required', 'Escolha um arquivo para continuar', (value) => {
+const schema = yup.object({
+    name: yup.string().required('Digite o nome do produto'),
+    price: yup
+        .number()
+        .positive()
+        .required('Digite o preço do produto')
+        .typeError('Digite o preço do produto'),
+    category: yup.object().required('Escolha uma categoria'),
+    offer: yup.bool(),
+    file: yup
+        .mixed()
+        .test('required', 'Escolha um arquivo para continuar', (value) => {
             return value && value.length > 0;
         })
-            .test('fileSize', 'Carregue arquivos até 5mb', value => {
-                return value && value.length > 0 && value[0].size <= 5000000;
-            }).test('type', 'Carregue apenas imagens PNG ou JPEG', value => {
-                return value && value.length > 0 && (value[0].type === 'image/jpeg' || value[0].type === 'image/png')
-            })
-    });
+        .test('fileSize', 'Carregue arquivos até 5mb', (value) => {
+            return value && value.length > 0 && value[0].size <= 5000000;
+        })
+        .test('type', 'Carregue apenas imagens PNG ou JPEG', (value) => {
+            return (
+                value &&
+                value.length > 0 &&
+                (value[0].type === 'image/jpeg' ||
+                    value[0].type === 'image/png')
+            );
+        }),
+});
 
 export function NewProduct() {
-    const [fileName, setFileName] = useState(null)
-    const [categories, setCategories] = useState([])
+    const [fileName, setFileName] = useState(null);
+    const [categories, setCategories] = useState([]);
 
     const navigate = useNavigate();
 
     useEffect(() => {
-
-
         async function loadCategories() {
             const { data } = await api.get('/categories');
 
-            setCategories(data)
+            setCategories(data);
         }
 
-        loadCategories()
-    }, [])
+        loadCategories();
+    }, []);
 
     const {
         register,
@@ -61,15 +69,15 @@ export function NewProduct() {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(schema),
-    })
+    });
     const onSubmit = async (data) => {
         const productFormData = new FormData();
 
-        productFormData.append('name', data.name)
-        productFormData.append('price', data.price * 100)
-        productFormData.append('category_id', data.category.id)
-        productFormData.append('file', data.file[0])
-        productFormData.append('offer', data.offer)
+        productFormData.append('name', data.name);
+        productFormData.append('price', data.price * 100);
+        productFormData.append('category_id', data.category.id);
+        productFormData.append('file', data.file[0]);
+        productFormData.append('offer', data.offer);
 
         await toast.promise(api.post('/products', productFormData), {
             pending: 'Adicionando o produto...',
@@ -78,7 +86,7 @@ export function NewProduct() {
         });
 
         setTimeout(() => {
-            navigate('/admin/produtos')
+            navigate('/admin/produtos');
         }, 2000);
     };
 
@@ -87,13 +95,13 @@ export function NewProduct() {
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <InputGroup>
                     <Label>Nome</Label>
-                    <Input type='text' {...register('name')} />
+                    <Input type="text" {...register('name')} />
                     <ErrorMessage>{errors?.name?.message}</ErrorMessage>
                 </InputGroup>
 
                 <InputGroup>
                     <Label>Preço</Label>
-                    <Input type='number' {...register('price')} />
+                    <Input type="number" {...register('price')} />
                     <ErrorMessage>{errors?.price?.message}</ErrorMessage>
                 </InputGroup>
 
@@ -101,12 +109,12 @@ export function NewProduct() {
                     <LabelUpload>
                         <Image />
                         <input
-                            type='file'
+                            type="file"
                             {...register('file')}
-                            accept='image/png, image/jpeg'
+                            accept="image/png, image/jpeg"
                             onChange={(value) => {
-                                setFileName(value.target.files[0]?.name)
-                                register('file').onChange(value)
+                                setFileName(value.target.files[0]?.name);
+                                register('file').onChange(value);
                             }}
                         />
 
@@ -118,27 +126,25 @@ export function NewProduct() {
                 <InputGroup>
                     <Label>Categoria</Label>
                     <Controller
-                        name='category'
+                        name="category"
                         control={control}
                         render={({ field }) => (
                             <Select
                                 {...field}
                                 options={categories}
                                 getOptionLabel={(category) => category.name}
-                                getOptionValue={(category) => String(category.id)}
-                                placeholder='Categorias'
+                                getOptionValue={(category) =>
+                                    String(category.id)
+                                }
+                                placeholder="Categorias"
                                 menuPortalTarget={document.body}
-
                             />
                         )}
                     />
                 </InputGroup>
                 <InputGroup>
                     <ContainerCheckbox>
-                        <input
-                            type='checkbox'
-                            {...register('offer')}
-                        />
+                        <input type="checkbox" {...register('offer')} />
                         <Label>Produto em Oferta?</Label>
                     </ContainerCheckbox>
                 </InputGroup>
@@ -146,5 +152,5 @@ export function NewProduct() {
                 <SubmitButton>Adicionar Produto</SubmitButton>
             </Form>
         </Container>
-    )
+    );
 }

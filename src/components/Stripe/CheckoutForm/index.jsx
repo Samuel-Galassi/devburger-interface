@@ -2,17 +2,17 @@ import { useState } from 'react';
 import {
     PaymentElement,
     useStripe,
-    useElements
+    useElements,
 } from '@stripe/react-stripe-js';
-import { useNavigate, useLocation } from 'react-router-dom'
-import './styles.css'
+import { useNavigate, useLocation } from 'react-router-dom';
+import './styles.css';
 import { useCart } from '../../../hooks/CartContext';
 import { api } from '../../../services/api';
 import { toast } from 'react-toastify';
 
 export default function CheckoutForm() {
-    const { cartProducts, clearCart } = useCart()
-    const navigate = useNavigate()
+    const { cartProducts, clearCart } = useCart();
+    const navigate = useNavigate();
 
     const stripe = useStripe();
     const elements = useElements();
@@ -27,7 +27,7 @@ export default function CheckoutForm() {
         e.preventDefault();
 
         if (!stripe || !elements) {
-            console.error('Stripe ou Elements com falha, tente novamente')
+            console.error('Stripe ou Elements com falha, tente novamente');
 
             return;
         }
@@ -39,75 +39,88 @@ export default function CheckoutForm() {
             redirect: 'if_required',
         });
 
-
         if (error) {
             setMessage(error.message);
-            toast.error(error.message)
+            toast.error(error.message);
         } else if (paymentIntent && paymentIntent.status === 'succeeded') {
             try {
-
                 const products = cartProducts.map((product) => {
                     return {
                         id: product.id,
                         quantity: product.quantity,
-                        price: product.price
+                        price: product.price,
                     };
                 });
 
-
-                const { status } = await api.post('/orders', { products }, {
-                    validateStatus: () => true,
-                });
+                const { status } = await api.post(
+                    '/orders',
+                    { products },
+                    {
+                        validateStatus: () => true,
+                    },
+                );
                 if (status === 200 || status === 201) {
-
                     setTimeout(() => {
-                        navigate(`/complete?payment_intent_client_secret=${paymentIntent.client_secret}`);
+                        navigate(
+                            `/complete?payment_intent_client_secret=${paymentIntent.client_secret}`,
+                        );
                     }, 3000);
                     clearCart();
 
-                    toast.success('Pedido Realizado com Sucesso')
+                    toast.success('Pedido Realizado com Sucesso');
                 } else if (status === 409) {
-                    toast.error('Falha ao realizar o seu pedido')
+                    toast.error('Falha ao realizar o seu pedido');
                 } else {
-                    throw new Error()
+                    throw new Error();
                 }
             } catch (error) {
-                toast.error('😭 Falha no Sistema! tente novamente')
+                toast.error('😭 Falha no Sistema! tente novamente');
             }
         } else {
             navigate(
-                `/complete?payment_intent_client_secret=${paymentIntent.client_secret}`
-            )
+                `/complete?payment_intent_client_secret=${paymentIntent.client_secret}`,
+            );
         }
 
         setIsLoading(false);
     };
 
     const paymentElementOptions = {
-        layout: 'accordion'
-    }
+        layout: 'accordion',
+    };
 
     return (
-        <div className='container'>
-            <form id='payment-form' onSubmit={handleSubmit}>
-
-                <PaymentElement id='payment-element' options={paymentElementOptions} />
-                <button disabled={isLoading || !stripe || !elements} id='submit' className='button'>
-                    <span id='button-text'>
-                        {isLoading ? <div className='spinner' id='spinner'></div> : 'Pagar agora'}
+        <div className="container">
+            <form id="payment-form" onSubmit={handleSubmit}>
+                <PaymentElement
+                    id="payment-element"
+                    options={paymentElementOptions}
+                />
+                <button
+                    disabled={isLoading || !stripe || !elements}
+                    id="submit"
+                    className="button"
+                >
+                    <span id="button-text">
+                        {isLoading ? (
+                            <div className="spinner" id="spinner"></div>
+                        ) : (
+                            'Pagar agora'
+                        )}
                     </span>
                 </button>
                 {/* Show any error or success messages */}
-                {message && <div id='payment-message'>{message}</div>}
+                {message && <div id="payment-message">{message}</div>}
             </form>
-            <div id='dpm-annotation'>
+            <div id="dpm-annotation">
                 <p>
-                    os métodos de pagamento são disponibilizados de acordo com a sua região.&nbsp;
+                    os métodos de pagamento são disponibilizados de acordo com a
+                    sua região.&nbsp;
                     <a
                         href={dpmCheckerLink}
-                        target='_blank'
-                        rel='noopener noreferrer'
-                        id='dpm-integration-checker'
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        id="dpm-integration-checker"
                     >
                         Ver métodos de pagamento
                     </a>

@@ -1,4 +1,4 @@
-import { Body, Root, Header, Tr, Th, Td } from './styles'
+import { Body, Root, Header, Tr, Th, Td } from './styles';
 
 export const Table = {
     Body,
@@ -6,5 +6,5 @@ export const Table = {
     Header,
     Tr,
     Th,
-    Td
-}
+    Td,
+};

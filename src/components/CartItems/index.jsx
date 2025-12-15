@@ -1,10 +1,17 @@
 import { Table } from '../index';
 import { useCart } from '../../hooks/CartContext';
 import { formatPrice } from '../../utils/FormatPrice';
-import { EmptyCart, ButtonGroup, ProductImage, TotalPrice, TrashImage } from './styles';
-import TrashIcon from '../../assets/trash.svg'
+import {
+    EmptyCart,
+    ButtonGroup,
+    ProductImage,
+    TotalPrice,
+    TrashImage,
+} from './styles';
+import TrashIcon from '../../assets/trash.svg';
 export function CartItems() {
-    const { cartProducts, increaseProduct, deleteProduct, decreaseProduct } = useCart();
+    const { cartProducts, increaseProduct, deleteProduct, decreaseProduct } =
+        useCart();
 
     return (
         <Table.Root>
@@ -29,16 +36,36 @@ export function CartItems() {
                             <Table.Td>{product.currencyValue}</Table.Td>
                             <Table.Td>
                                 <ButtonGroup>
-                                    <button onClick={() => decreaseProduct(product.id)}>-</button>
+                                    <button
+                                        onClick={() =>
+                                            decreaseProduct(product.id)
+                                        }
+                                    >
+                                        -
+                                    </button>
                                     {product.quantity}
-                                    <button onClick={() => increaseProduct(product.id)}>+</button>
+                                    <button
+                                        onClick={() =>
+                                            increaseProduct(product.id)
+                                        }
+                                    >
+                                        +
+                                    </button>
                                 </ButtonGroup>
                             </Table.Td>
                             <TotalPrice>
-                                <Table.Td>{formatPrice(product.quantity * product.price)}</Table.Td>
+                                <Table.Td>
+                                    {formatPrice(
+                                        product.quantity * product.price,
+                                    )}
+                                </Table.Td>
                             </TotalPrice>
                             <Table.Td>
-                                <TrashImage src={TrashIcon} alt='lixeira' onClick={() => deleteProduct(product.id)} />
+                                <TrashImage
+                                    src={TrashIcon}
+                                    alt="lixeira"
+                                    onClick={() => deleteProduct(product.id)}
+                                />
                             </Table.Td>
                         </Table.Tr>
                     ))
@@ -51,5 +78,5 @@ export function CartItems() {
                 )}
             </Table.Body>
         </Table.Root>
-    )
+    );
 }

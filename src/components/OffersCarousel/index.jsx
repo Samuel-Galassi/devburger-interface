@@ -1,4 +1,4 @@
-import { api } from '../../services/api'
+import { api } from '../../services/api';
 import { useState, useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -10,17 +10,19 @@ export function OffersCarousel() {
     const [offers, setOffers] = useState([]);
 
     useEffect(() => {
-
         async function loadProducts() {
             const { data } = await api.get('/products');
-            
-            const onlyOffers = data.filter(product => product.offer).map(product => (
-                {currencyValue: formatPrice(product.price), ...product,}
-            ));
+
+            const onlyOffers = data
+                .filter((product) => product.offer)
+                .map((product) => ({
+                    currencyValue: formatPrice(product.price),
+                    ...product,
+                }));
 
             setOffers(onlyOffers);
         }
-        loadProducts()
+        loadProducts();
     }, []);
 
     const responsive = {
@@ -39,9 +41,8 @@ export function OffersCarousel() {
         mobile: {
             breakpoint: { max: 690, min: 0 },
             items: 2,
-        }
+        },
     };
-
 
     return (
         <Container>
@@ -51,10 +52,10 @@ export function OffersCarousel() {
                 responsive={responsive}
                 infinite={true}
                 partialVisible={false}
-                itemclass='carousel-item'>
-
-                {offers.map(product => (
-                   <CardProduct key={product.id} product={product} />
+                itemclass="carousel-item"
+            >
+                {offers.map((product) => (
+                    <CardProduct key={product.id} product={product} />
                 ))}
             </Carousel>
         </Container>

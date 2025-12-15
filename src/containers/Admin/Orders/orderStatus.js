@@ -4,6 +4,5 @@ export const orderStatusOptions = [
     { id: 2, value: 'Em Preparação', label: 'Em Preparação' },
     { id: 3, value: 'Pedido Pronto', label: 'Pedido Pronto' },
     { id: 4, value: 'Pedido à Caminho', label: 'Pedido à Caminho' },
-    { id: 5, value: 'Entregue', label: 'Entregue' }
-    
-]
+    { id: 5, value: 'Entregue', label: 'Entregue' },
+];

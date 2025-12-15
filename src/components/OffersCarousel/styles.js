@@ -1,32 +1,30 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     .carousel-item {
         padding: 40px;
     }
-    overflow-x:hidden;
+    overflow-x: hidden;
 
     .react-multi-carousel-list {
         overflow: visible;
     }
 
-    .react-multiple-carousel__arrow--left{
+    .react-multiple-carousel__arrow--left {
         left: 15px;
         top: 10px;
     }
-     .react-multiple-carousel__arrow--right{
+    .react-multiple-carousel__arrow--right {
         top: 10px;
     }
 
     padding-left: 40px;
     padding-bottom: 20px;
 
-     .react-multi-carousel-item {
-        margin: 15px
-
+    .react-multi-carousel-item {
+        margin: 15px;
     }
-`
+`;
 
 export const Tittle = styled.h2`
     font-size: 32px;
@@ -35,16 +33,15 @@ export const Tittle = styled.h2`
     padding-bottom: 12px;
     position: relative;
     text-align: center;
-    margin:70px 0;
+    margin: 70px 0;
 
     &::after {
         content: '';
-        position:absolute;
+        position: absolute;
         bottom: 0;
         width: 56px;
         height: 4px;
         background-color: ${(props) => props.theme.green};
         left: calc(50% - 28px);
     }
-
-`
+`;

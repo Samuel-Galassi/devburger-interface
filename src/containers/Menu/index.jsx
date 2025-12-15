@@ -1,114 +1,119 @@
 import { useEffect, useState } from 'react';
-import { Banner, Container, CategoryMenu, ProductsContainer, CategoryButton, HomeButton } from './styles';
+import {
+    Banner,
+    Container,
+    CategoryMenu,
+    ProductsContainer,
+    CategoryButton,
+    HomeButton,
+} from './styles';
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/FormatPrice';
 import { CardProduct } from '../../components/CardProduct';
-import { useLocation, useNavigate,  } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Home } from '../Home';
 
-
-
-
 export function Menu() {
-
     const [categories, setCategories] = useState([]);
     const [products, setProducts] = useState([]);
     const [filteredproducts, setFilteredProducts] = useState([]);
-    
-    useNavigate
 
-    const navigate = useNavigate()
+    useNavigate;
 
-    const { search } = useLocation()
+    const navigate = useNavigate();
 
-    const queryParams = new URLSearchParams(search)
+    const { search } = useLocation();
+
+    const queryParams = new URLSearchParams(search);
 
     const [activeCategory, setActiveCategory] = useState(() => {
-        const categoryId = +queryParams.get('categoria')
+        const categoryId = +queryParams.get('categoria');
 
-        if(categoryId){
-            return categoryId
+        if (categoryId) {
+            return categoryId;
         }
-        return 0
+        return 0;
     });
 
     useEffect(() => {
-
         async function loadCategories() {
             const { data } = await api.get('/categories');
 
-            const newCategories = [{ id: 0, name: 'Todas' }, ...data]
+            const newCategories = [{ id: 0, name: 'Todas' }, ...data];
 
             setCategories(newCategories);
         }
         async function loadProducts() {
             const { data } = await api.get('/products');
 
-            const newProducts = data.map(product => (
-                {
-                    currencyValue: formatPrice(product.price), ...product,
-
-                }));
+            const newProducts = data.map((product) => ({
+                currencyValue: formatPrice(product.price),
+                ...product,
+            }));
 
             setProducts(newProducts);
         }
 
-        loadCategories()
-        loadProducts()
+        loadCategories();
+        loadProducts();
     }, []);
 
     useEffect(() => {
-        if(activeCategory === 0){
+        if (activeCategory === 0) {
             setFilteredProducts(products);
-        }else{
+        } else {
             const newFilteredProducts = products.filter(
-                product => product.category_id === activeCategory,
+                (product) => product.category_id === activeCategory,
             );
 
-            setFilteredProducts(newFilteredProducts)
+            setFilteredProducts(newFilteredProducts);
         }
-
-    }, [products, activeCategory])
+    }, [products, activeCategory]);
 
     return (
         <Container>
             <Banner>
-                <h1>O MELHOR
+                <h1>
+                    O MELHOR
                     <br />
                     HAMBURGUER
                     <br />
                     ESTÁ AQUI!
                     <span>Esse cardápio está irresistível!</span>
                 </h1>
-
             </Banner>
-            <CategoryMenu> {categories.map((category) => (
-                <CategoryButton
-                    key={category.id}
-                    $isActiveCategory={category.id === activeCategory}
-                    onClick={() => {
-                        navigate(
-                            {
-                                pathname: '/cardapio',
-                                search: `?categoria=${category.id}`,
-                            },
-                            {
-                                replace: true,
-                            },
-                            
-                        );
-                        setActiveCategory(category.id); 
-                    }}
-                >{category.name}</CategoryButton>
-            ))}
+            <CategoryMenu>
+                {' '}
+                {categories.map((category) => (
+                    <CategoryButton
+                        key={category.id}
+                        $isActiveCategory={category.id === activeCategory}
+                        onClick={() => {
+                            navigate(
+                                {
+                                    pathname: '/cardapio',
+                                    search: `?categoria=${category.id}`,
+                                },
+                                {
+                                    replace: true,
+                                },
+                            );
+                            setActiveCategory(category.id);
+                        }}
+                    >
+                        {category.name}
+                    </CategoryButton>
+                ))}
             </CategoryMenu>
 
             <ProductsContainer>
-                {filteredproducts.map((product =>
+                {filteredproducts.map((product) => (
                     <CardProduct product={product} key={product.id} />
                 ))}
             </ProductsContainer>
-            <HomeButton onClick={() => navigate('/')}>Voltar para Home</HomeButton>
+            <HomeButton onClick={() => navigate('/')}>
+                Voltar para Home
+            </HomeButton>
         </Container>
-    )
+    );
 }
