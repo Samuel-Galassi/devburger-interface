@@ -1,16 +1,66 @@
-# React + Vite
+# 🍔 DevBurger — Front-end Interface
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Responsivo](https://img.shields.io/badge/Responsivo-não-red?style=for-the-badge)
 
-Currently, two official plugins are available:
+Este repositório contém o **front-end do sistema DevBurger**, uma aplicação web desenvolvida em **React**, com foco em **componentização, organização de código e experiência do usuário**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O projeto faz parte da minha formação como **Desenvolvedor Web Full Stack** no **DevClub**, sendo utilizado para consolidar conhecimentos reais do mercado, integração com API e boas práticas de front-end.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📸 Demonstração
 
-## Expanding the ESLint configuration
+🔗 Interface integrada à API DevBurger  
+*(Projeto conectado a um back-end próprio com autenticação, produtos e pedidos)*
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tecnologias utilizadas
+
+- React.js  
+- JavaScript (ES6+)  
+- Styled-components  
+- React Router DOM  
+- Context API  
+- Axios  
+- Design responsivo  
+
+---
+
+## 🎯 Objetivos do projeto
+
+- Desenvolver uma **interface moderna e escalável**
+- Trabalhar **consumo de API REST**
+- Implementar **autenticação e controle de acesso**
+- Criar uma **experiência de usuário fluida**
+- Aplicar **boas práticas de organização e componentização em React**
+
+---
+
+## 🧠 Diferenciais
+
+- Separação clara de responsabilidades  
+- Componentes reutilizáveis  
+- Layout responsivo  
+- Integração completa com back-end próprio  
+- Projeto com padrão profissional, próximo ao ambiente real de trabalho  
+
+---
+
+## 📂 Estrutura do projeto
+
+```bash
+📦 devburger-interface
+ ┣ 📂 src
+ ┃ ┣ 📂 components
+ ┃ ┣ 📂 hooks
+ ┃ ┣ 📂 pages
+ ┃ ┣ 📂 services
+ ┃ ┣ 📂 styles
+ ┃ ┗ 📜 main.jsx
+ ┣ 📜 package.json
+ ┣ 📜 README.md
