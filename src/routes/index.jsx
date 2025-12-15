@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route, Routes } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import {
     Cart,
@@ -16,25 +16,26 @@ import { AdminLayout } from '../layout/AdminLayout';
 export default function Router() {
     return (
         <Routes>
+            {/* Rotas do usuário */}
             <Route path="/" element={<UserLayout />}>
-                <Route path="/" element={<Home />} />
-                <Route path="/Cardapio" element={<Menu />} />
-                <Route path="/carrinho" element={<Cart />} />
-                <Route path="/checkout" element={<Checkout />} />
-                <Route path="/complete" element={<CompletePayment />} />
+                <Route index element={<Home />} /> {/* Página inicial */}
+                <Route path="cardapio" element={<Menu />} />
+                <Route path="carrinho" element={<Cart />} />
+                <Route path="checkout" element={<Checkout />} />
+                <Route path="complete" element={<CompletePayment />} />
             </Route>
 
+            {/* Rotas do admin */}
             <Route path="/admin" element={<AdminLayout />}>
-                <Route path="/admin/pedidos" element={<Orders />} />
-                <Route path="/admin/novo-produto" element={<NewProduct />} />
-                <Route path="/admin/editar-produto" element={<EditProduct />} />
-                <Route path="/admin/produtos" element={<Products />} />
+                <Route path="pedidos" element={<Orders />} />
+                <Route path="novo-produto" element={<NewProduct />} />
+                <Route path="editar-produto" element={<EditProduct />} />
+                <Route path="produtos" element={<Products />} />
             </Route>
 
-            <Route path="/login" element={<Login />} />
-            <Route path="/cadastro" element={<Register />} />
+            {/* Rotas públicas */}
+            <Route path="login" element={<Login />} />
+            <Route path="cadastro" element={<Register />} />
         </Routes>
     );
 }
-
-//qual é o atalho para comentar multiplas linhas: ctrl + k + c, e para reverter ctrl + k + u

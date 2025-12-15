@@ -49,11 +49,9 @@ export function CategoriesCarousel() {
                 {categories.map((category) => (
                     <ContainerItems key={category.id} imageurl={category.url}>
                         <CategoryButton
-                            onClick={() => {
-                                navigate({
-                                    pathname: '/cardapio',
-                                    search: `?categoria=${category.id}`,
-                                });
+                            onClick={(e) => {
+                                e.preventDefault(); // previne recarregamento
+                                navigate(`/cardapio?categoria=${category.id}`);
                             }}
                         >
                             {category.name}

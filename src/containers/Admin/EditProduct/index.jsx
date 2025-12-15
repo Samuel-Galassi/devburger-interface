@@ -100,7 +100,7 @@ export function EditProduct() {
                     <Label>Preço</Label>
                     <Input
                         type="number"
-                        steps="0.01"
+                        step="0.01"
                         {...register('price')}
                         defaultValue={product.price / 100}
                     />

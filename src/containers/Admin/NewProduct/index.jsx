@@ -101,7 +101,7 @@ export function NewProduct() {
 
                 <InputGroup>
                     <Label>Preço</Label>
-                    <Input type="number" {...register('price')} />
+                    <Input type="number" step="0.01" {...register('price')} />
                     <ErrorMessage>{errors?.price?.message}</ErrorMessage>
                 </InputGroup>
 

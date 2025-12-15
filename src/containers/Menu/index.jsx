@@ -1,3 +1,4 @@
+import { api } from '../../services/api';
 import { useEffect, useState } from 'react';
 import {
     Banner,
@@ -7,7 +8,7 @@ import {
     CategoryButton,
     HomeButton,
 } from './styles';
-import { api } from '../../services/api';
+
 import { formatPrice } from '../../utils/FormatPrice';
 import { CardProduct } from '../../components/CardProduct';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -34,6 +35,11 @@ export function Menu() {
         }
         return 0;
     });
+    
+    useEffect(() => {
+    const categoryId = Number(new URLSearchParams(search).get('categoria')) || 0;
+    setActiveCategory(categoryId);
+}, [search]);
 
     useEffect(() => {
         async function loadCategories() {
