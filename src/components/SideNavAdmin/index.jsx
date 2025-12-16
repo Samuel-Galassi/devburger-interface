@@ -1,4 +1,4 @@
-import { navLinks } from './NavLinks';
+import { navLinks } from './navLinks';
 import Logo from '../../assets/logo.svg';
 import { SignOut } from '@phosphor-icons/react';
 import { Container, NavLinkContainer, NavLink, Footer } from './styles';
