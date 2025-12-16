@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Elements } from '@stripe/react-stripe-js';
-import stripePromise from '../../config/stripeconfig';
+import stripePromise from '../../config/stripeConfig.js';
 import CheckoutForm from '../../components/Stripe/CheckoutForm';
 
 export function Checkout() {

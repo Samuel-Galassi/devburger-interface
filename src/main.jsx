@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import Router from './routes';
 import AppProvider from './hooks';
 import { Elements } from '@stripe/react-stripe-js';
-import stripePromise from './config/stripeconfig';
+import stripePromise from './config/stripeConfig.js';
 import { ThemeProvider } from 'styled-components';
 import { standardTheme } from './styles/themes/standard';
 
