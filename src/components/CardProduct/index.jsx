@@ -8,7 +8,7 @@ export function CardProduct({ product }) {
 
     return (
         <Container>
-            <CardImage src={`${import.meta.env.VITE_BASE_URL}/${product.url}`} alt={product.name} />
+            <CardImage src={product.url} alt={product.name} />
             <div>
                 <p>{product.name}</p>
                 <strong>{product.currencyValue}</strong>

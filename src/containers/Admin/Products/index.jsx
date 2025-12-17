@@ -74,7 +74,7 @@ export function Products() {
                                     {isOffer(product.offer)}
                                 </TableCell>
                                 <TableCell align="center">
-                                    <ProductImage src={`${import.meta.env.VITE_BASE_URL}/${product.url}`} />
+                                    <ProductImage src={product.url} />
                                 </TableCell>
                                 <TableCell align="center">
                                     <EditButton

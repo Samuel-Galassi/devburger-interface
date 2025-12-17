@@ -130,7 +130,7 @@ export function Row({ row, setOrders, orders }) {
                                             </TableCell>
                                             <TableCell>
                                                 <ProductImage
-                                                    src={`${import.meta.env.VITE_BASE_URL}/${product.url}`}
+                                                    src={product.url}
                                                     alt={product.name}
                                                 />
                                             </TableCell>

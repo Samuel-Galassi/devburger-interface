@@ -47,7 +47,7 @@ export function CategoriesCarousel() {
                 itemclass="carousel-item"
             >
                 {categories.map((category) => (
-                    <ContainerItems key={category.id} imageurl={`${import.meta.env.VITE_BASE_URL}/${category.url}`}>
+                    <ContainerItems key={category.id} imageurl={category.url}>
                         <CategoryButton
                             onClick={(e) => {
                                 e.preventDefault(); // previne recarregamento
