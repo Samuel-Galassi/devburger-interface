@@ -104,3 +104,56 @@ export const LinkContainer = styled.div`
     align-items: center;
     gap: 10px;
 `;
+
+export const AuthContainer = styled.div`
+    display: flex;
+`;
+
+export const RegisterText = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    a {
+        color: ${(props) => props.theme.purple};
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    &:hover{
+        text-decoration:underline 1.6px;
+        color: ${(props) => props.theme.purple};
+    }
+`;
+
+export const AuthRight = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 24px;
+`;
+
+// 🔹 Container dos botões de autenticação (Login)
+export const AuthButtons = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    a {
+        color: ${(props) => props.theme.lightGray};
+        background-color: ${(props) => props.theme.purple};
+        font-weight: 600;
+        text-decoration: none;
+        padding: 8px 16px;
+        border: 1px solid ${(props) => props.theme.purple};;
+        border-radius: 8px;
+
+        &:hover {
+            background: ${(props) => props.theme.darkPurple};;
+            color: ${(props) => props.theme.darkWhite};
+        }
+    }
+`;

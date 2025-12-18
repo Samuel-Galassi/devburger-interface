@@ -56,6 +56,7 @@ export function Products() {
                     </TableHead>
                     <TableBody>
                         {products.map((product) => (
+                            console.log(product),
                             <TableRow
                                 key={product.id}
                                 sx={{
