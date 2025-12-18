@@ -15,6 +15,19 @@ const GlobalStyles = createGlobalStyle`
     button, a{
         cursor: pointer;
     }
-    `;
+
+    body {
+    overflow-y: scroll;
+    }
+
+    ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    }
+
+    html {
+    scrollbar-width: none;
+    }
+`;
 
 export default GlobalStyles;
