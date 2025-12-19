@@ -1,6 +1,6 @@
 # 🍔 DevBurger — Front-end Interface
 
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-em%20desenvolvido-green?style=for-the-badge)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -17,7 +17,16 @@ O projeto faz parte da minha formação como **Desenvolvedor Web Full Stack** no
 🔗 Interface integrada à API DevBurger  
 *(Projeto conectado a um back-end próprio com autenticação, produtos e pedidos)*
 
+## 🛠️ LINK DO PROJETO FRONTEND
+https://devburger-interface-two.vercel.app
+
 ---
+
+## 🛠️ LINK DO PROJETO BACKEND
+https://dev-burger-api-5b2n.onrender.com
+
+---
+
 
 ## 🛠️ Tecnologias utilizadas
 
